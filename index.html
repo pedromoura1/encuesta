@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirección A/B</title>
+    <script>
+      window.onload = function () {
+        const versionA = "https://forms.gle/btPCRvguFrNNcQ9B8";
+        const versionB = "https://forms.gle/L2a3sZHBHtzVDZuL7";
+        const last = localStorage.getItem("lastVersion");
+
+        let nextUrl;
+        if (last === "A") {
+          nextUrl = versionB;
+          localStorage.setItem("lastVersion", "B");
+        } else {
+          nextUrl = versionA;
+          localStorage.setItem("lastVersion", "A");
+        }
+
+        window.location.href = nextUrl;
+      };
+    </script>
+  </head>
+  <body>
+    <p>Redireccionando...</p>
+  </body>
+</html>
